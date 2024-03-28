@@ -1,17 +1,13 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class Solution {
     public int[] solution(int []arr) {
-        List<Integer> consecutiveNumberRemovalList = new ArrayList<>(List.of(arr[0]));
-        
+        Queue<Integer> consecutiveNumberRemovalQueue = new LinkedList<>(List.of(arr[0]));
         for (int i = 1; i < arr.length; i++)  {
             if (arr[i - 1] != arr[i]) {
-                consecutiveNumberRemovalList.add(arr[i]);
+                consecutiveNumberRemovalQueue.offer(arr[i]);
             }
         }
-        
-        return consecutiveNumberRemovalList.stream().mapToInt(Integer::intValue).toArray();
+        return consecutiveNumberRemovalQueue.stream().mapToInt(Integer::intValue).toArray();
     }
 }
