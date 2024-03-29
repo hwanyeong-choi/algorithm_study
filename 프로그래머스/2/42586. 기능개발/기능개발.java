@@ -4,7 +4,6 @@ import java.util.stream.Collectors;
 class Solution {
     public int[] solution(int[] progresses, int[] speeds) {
         int day = 1;
-        int dailyWorkloadCount = 0;
 
         Queue<Integer> progressesQueue = Arrays.stream(progresses)
                 .boxed()
